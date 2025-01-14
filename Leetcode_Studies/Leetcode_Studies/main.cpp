@@ -196,6 +196,27 @@ unordered_map<int,int> hash;
 
         return current_value;
  * */
+ 
+/* Q14: Longest Common Prefix, 0ms
+ * string res = "";
+        // get the first string
+        string first = strs.at(0);
+        for (int i=0; i<first.size(); i++) { // for all the chars in first
+            int ctr = 1; // number of matches in other strings
+            for (int j=1; j<strs.size(); j++) { // for all the strings in strs
+                // check if the current string has matching char
+                if (first[i] == strs[j][i]) ctr++;
+            }
+            if (ctr != strs.size()) {
+                break;
+            }
+            else {
+                res += first[i];
+            }
+        }
+
+        return res;
+ * */
 int main() {
 
 	return 0;
