@@ -110,7 +110,16 @@ unordered_map<int,int> hash;
  * 
  * 
  * */
-
+/* Q9: Palindrome Numbers, 0ms
+ * 
+ * std::string temp = std::to_string(x);
+        int val = 0;
+        for (int i=0; i<temp.length(); i++) {
+            if (temp[i] == temp[temp.length()-1-i]) val++;
+            else return false; 
+        }
+        return true;
+ * */
 int main() {
 
 	return 0;
