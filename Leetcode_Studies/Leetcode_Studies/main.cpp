@@ -217,6 +217,78 @@ unordered_map<int,int> hash;
 
         return res;
  * */
+ 
+ /* Q21: Merge Two Sorted Lists, 0ms
+  * if (list1 == nullptr) return list2;
+        else if (list2 == nullptr) return list1;
+        else {
+            int list1_length = 0;
+            int list2_length = 0;
+            auto it_1 = list1;
+            auto it_2 = list2;
+            while (it_1 != nullptr) {
+                list1_length++;
+                it_1 = it_1->next;
+            }
+            while (it_2 != nullptr) {
+                list2_length++;
+                it_2 = it_2->next;
+            }
+            if (list1_length < list2_length) {
+                auto temp = list1;
+                list1 = list2;
+                list2 = temp;
+            }
+            if (list1->next == nullptr && list2->next == nullptr) {
+                // then both have only one element
+                // list with smaller element should be list1, so that the other list's element can be inserted into list1
+                if (list1->val > list2->val) {
+                    auto temp = list1;
+                    list1 = list2;
+                    list2 = temp;
+                }
+            }
+            // now list1 will always have equal or more items, so we can insert elements of list2 one by one
+            it_1 = list1;
+            it_2 = list2;
+
+            //find the first element that will come before it_2
+            while (it_1->next != nullptr && (it_1->next)->val <= it_2->val) {
+                if (it_1->val < it_2->val) it_1 = it_1->next;
+                else break;
+            }
+
+            if (it_2->next == nullptr) { // only one element in list2
+                if (it_1->val <= it_2->val) {
+                    it_2->next = it_1->next;
+                    it_1->next = it_2;
+                }
+                else {
+                    it_2->next = it_1;
+                    list1 = it_2;
+                }
+                return list1;
+            }
+            else { // more than one element in list2
+                if (it_1->val <= it_2->val) {
+                    list2 = it_2->next;
+                    it_2->next = it_1->next;
+                    it_1->next = it_2;
+                    
+                }
+                else {
+                    list2 = it_2->next;
+                    it_2->next = it_1;
+                    list1 = it_2;
+                }
+                return mergeTwoLists(list1,list2);
+            }
+        }
+  * 
+  * 
+  * */
+  
+  
 int main() {
 
 	return 0;
