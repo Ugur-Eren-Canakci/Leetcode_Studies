@@ -1,0 +1,19 @@
+0ms
+
+if (s.length() == 0) return 0;
+    if (s.length() == 1) {
+        if (s == " ") return 0;
+        else return 1;
+    }
+    auto it = s.rbegin();
+    // find the first char that's not a space
+    while (*it == ' ' && it != s.rend()) {
+        std::cout << *it << std::endl;
+        it++;
+    }
+    auto count = 0;
+    while (*it != ' ' && it != s.rend()){
+        count++;
+        it++;
+    }
+    return count;

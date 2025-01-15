@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q58_Length_of_Last_Word.txt"/>
     <File Name="Q35_Search_Insert_Position.txt"/>
     <File Name="Q28_Find_the_Index_of_First_Occurence_In_a_String.txt"/>
     <File Name="Q27_Remove_Element.txt"/>
