@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q27_Remove_Element.txt"/>
     <File Name="Q26_Remove_Duplicates_From_Sorted_Array.txt"/>
     <File Name="Q21_Merge_Two_Sorted_Lists.txt"/>
     <File Name="Q14_Longest_Common_Prefix.txt"/>

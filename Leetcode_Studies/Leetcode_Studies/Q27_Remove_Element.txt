@@ -1,0 +1,12 @@
+0ms
+
+if (nums.size() == 0) return 0;
+        auto it = nums.begin();
+        while (it < nums.end()) {
+            if (*it == val) {
+                nums.erase(it);
+                it = nums.begin();
+            }
+            else it++;
+        }
+        return nums.size();
