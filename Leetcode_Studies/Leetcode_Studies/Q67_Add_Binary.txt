@@ -1,0 +1,87 @@
+3ms
+
+if (a == "0") return b;
+        else if (b == "0") return a;
+
+        string res = "";
+        auto it_1 = a.rbegin();
+        auto it_2 = b.rbegin();
+        bool add_next = false;
+        while (it_1 < a.rend() && it_2 < b.rend()) {
+            if (add_next) { // add_next == true
+                if (*it_1 == '1' && *it_2 == '1') {
+                    res = "1" + res;
+                    add_next = true;
+                }
+                else if (*it_1 == '0' && *it_2 == '0') {
+                    res = "1" + res;
+                    add_next = false;
+                }
+                else {
+                    res = "0" + res;
+                    add_next = true;
+                }
+            }
+            else { // add_next == false
+                if (*it_1 == '1' && *it_2 == '1') {
+                    res = "0" + res;
+                    add_next = true;
+                }
+                else if (*it_1 == '0' && *it_2 == '0') {
+                    res = "0" + res;
+                    add_next = false;
+                }
+                else {
+                    res = "1" + res;
+                    add_next = false;
+                }
+            }
+            it_1++;
+            it_2++;
+        }
+        while (it_1 < a.rend()) {
+            if (add_next) {
+                if (*it_1 == '0') {
+                    res = "1" + res;
+                    add_next = false;
+                }
+                else if (*it_1 == '1') {
+                    res = "0" + res;
+                }
+            }
+            else {
+                if (*it_1 == '0') {
+                    res = "0" + res;
+
+                }
+                else if (*it_1 == '1') {
+                    res = "1" + res;
+                }
+                add_next = false;
+            }
+            it_1++;
+        }
+        while (it_2 < b.rend()) {
+            if (add_next) {
+                if (*it_2 == '0') {
+                    res = "1" + res;
+                    add_next = false;
+                }
+                else if (*it_2 == '1') {
+                    res = "0" + res;
+                }
+            }
+            else {
+                if (*it_2 == '0') {
+                    res = "0" + res;
+                }
+                else if (*it_2 == '1') {
+                    res = "1" + res;
+                }
+                add_next = false;
+            }
+            it_2++;
+        }
+
+        res = (add_next ? "1" : "") + res;
+        return res;
