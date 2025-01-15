@@ -1,0 +1,13 @@
+    
+47ms
+
+if (nums.size() == 0) return 0;
+
+        auto it = nums.begin();
+        while (it < --(nums.end())) {
+            if (*it == *(it+1)) {
+                nums.erase(it+1);
+            }
+            else it++;
+        }
+        return nums.size();
