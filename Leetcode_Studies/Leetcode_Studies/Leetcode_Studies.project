@@ -93,6 +93,13 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q21_Merge_Two_Sorted_Lists.txt"/>
+    <File Name="Q14_Longest_Common_Prefix.txt"/>
+    <File Name="Q13_Roman_to_Integer.txt"/>
+    <File Name="Q9_Palindrome_Numbers.txt"/>
+    <File Name="Q3_Longest_Substring_Without_Repeating_Characters.txt"/>
+    <File Name="Q2_Add_Two_Numbers.txt"/>
+    <File Name="Q1_Two_Sum.txt"/>
     <File Name="main.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

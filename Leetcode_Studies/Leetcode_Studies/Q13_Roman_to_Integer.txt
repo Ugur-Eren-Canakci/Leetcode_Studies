@@ -1,0 +1,75 @@
+/* Q13: Roman to Integer, 3ms
+ * 
+ * char arr[7] = {'M','D','C','L','X','V','I'};
+        int values[7] = {1000,500,100,50,10,5,1};
+        std::map<char,int> map;
+        
+        // populate the map
+        for (int i=0; i<7; i++) {
+            map.emplace(std::make_pair(arr[i],values[i]));
+        }
+        int current_value = 0;
+        
+        int it = 0;
+        while (it < s.length()) {
+            // if current char subtracts from the next char,
+            // add the compound value to current value and 
+            // increment it by two
+            if (it != s.length()-1) {
+                if (s[it] == 'I') {
+                    if (s[it+1] == 'V') {
+                        current_value += 4;
+                        it++;
+                    }
+                    else if (s[it+1] == 'X') {
+                        current_value += 9;
+                        it++;
+                    }
+                    else {
+                        current_value += 1;
+                    }
+                    it++;
+                }
+                else if (s[it] == 'X') {
+                    if (s[it+1] == 'L') {
+                        current_value += 40;
+                        it++;
+                    }
+                    else if (s[it+1] == 'C') {
+                        current_value += 90;
+                        it++;
+                    }
+                    else {
+                        current_value += 10;
+                    }
+                    it++;
+                }
+                else if (s[it] == 'C') {
+                    if (s[it+1] == 'D') {
+                        current_value += 400;
+                        it++;
+                    }
+                    else if (s[it+1] == 'M') {
+                        current_value += 900;
+                        it++;
+                    }
+                    else {
+                        current_value += 100;
+                    }
+                    it++;
+                }
+                else {
+                    current_value += map[s[it]];
+                    it++;
+                }
+            }
+            else {
+                current_value += map[s[it]];
+                it++;
+            }
+            // otherwise, add its value to current value
+            // and increment it by one
+        }
+
+        return current_value;
+ * */

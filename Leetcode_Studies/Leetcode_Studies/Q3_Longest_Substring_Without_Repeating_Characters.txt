@@ -1,0 +1,33 @@
+/* Q3: Longest Substring Without Repeating Characters, 1121 ms
+ * const int& s_length = s.length();
+        if (s_length == 0) {
+            return 0;
+        }
+
+        std::set<char> unique_chars(s.begin(), s.end());
+        const int& num_uniq = unique_chars.size();
+
+        // non-repeating substrings cannot have length > num_uniq
+        // if a substring has length > num_uniq, then it has to have a repeating char
+        // pigeonhole principle
+
+        int sub_str_length = num_uniq;
+        while (sub_str_length > 1) {
+            for (int i = 0; i < (s_length - sub_str_length + 1); i++) {
+
+                std::string sub_str = s.substr(i, sub_str_length);
+
+                std::set<char> sub_unique_chars(sub_str.begin(), sub_str.end());
+                int sub_num_uniq = sub_unique_chars.size();
+
+                if (sub_num_uniq == sub_str_length) { // if num of unique chars is equal to the currently checked length of substring,
+                    return sub_str_length; // then we found the right substring
+                }
+            }
+            --sub_str_length;
+        }
+        return 1;
+ * 
+ * 
+ * 
+ * */
