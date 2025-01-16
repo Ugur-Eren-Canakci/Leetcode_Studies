@@ -16,9 +16,15 @@ int binarySearch(std::vector<int>& vec, int target) {
     return -1;
 }
 
+int mySqrt(int x) {
+    if (x==0) return 0;
+    if (x==1) return 1;
+    unsigned int y=0;
+    while (y*y < x) y++;
+    return y-1;
+}
 
 int main() {
-        
     
 	return 0;
 }
