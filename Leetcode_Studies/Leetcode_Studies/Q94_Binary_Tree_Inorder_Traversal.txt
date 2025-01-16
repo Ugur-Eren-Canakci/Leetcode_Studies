@@ -1,0 +1,20 @@
+0ms
+
+vector<int> res;
+        if (root == nullptr) return res;
+        else if (root->left == nullptr && root->right == nullptr) res.push_back(root->val);
+        else if (root->left == nullptr && root->right != nullptr) {
+            res.push_back(root->val);
+            for (const auto& el : inorderTraversal(root->right)) res.push_back(el);
+        }
+        else if (root->left != nullptr && root->right == nullptr) {
+            for (const auto& el : inorderTraversal(root->left)) res.push_back(el);
+            res.push_back(root->val);
+        }
+        else {
+            for (const auto& el : inorderTraversal(root->left)) res.push_back(el);
+            res.push_back(root->val);
+            for (const auto& el : inorderTraversal(root->right)) res.push_back(el);
+        }
+
+        return res;
