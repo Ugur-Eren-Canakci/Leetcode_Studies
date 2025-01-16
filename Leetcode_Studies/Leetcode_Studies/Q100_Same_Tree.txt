@@ -1,0 +1,27 @@
+0ms
+
+        bool val, l, r;
+        
+        if (p == nullptr && q != nullptr) return false;
+        else if (p != nullptr && q == nullptr) return false;
+        else if (p == nullptr && q == nullptr) return true;
+        else if (p->val != q->val) return false;
+        else val = true;
+
+        //left tree
+        if (p->left == nullptr && q->left != nullptr) return false;
+        if (p->left != nullptr && q->left == nullptr) return false;
+        if (p->left == nullptr && q->left == nullptr) l = true;
+        else if (p->left != nullptr && q->left != nullptr) {
+            l = isSameTree(p->left, q->left) && (p->left->val == q->left->val);
+        }
+           
+        //right tree
+        if (p->right == nullptr && q->right != nullptr) return false;
+        if (p->right != nullptr && q->right == nullptr) return false;
+        if (p->right == nullptr && q->right == nullptr) r = true;
+        else if (p->right != nullptr && q->right != nullptr) {
+            r = isSameTree(p->right, q->right) && (p->right->val == q->right->val);
+        }
+
+        return val && l && r;
