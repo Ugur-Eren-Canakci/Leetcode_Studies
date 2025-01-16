@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q70_Climbing_Stairs.txt"/>
     <File Name="Q69_Sqrt(x).txt"/>
     <File Name="Q67_Add_Binary.txt"/>
     <File Name="Q66_Plus_One.txt"/>
