@@ -1,0 +1,19 @@
+3ms
+
+        auto it = head;
+        if (it == nullptr) return head; // no elements
+        if (it->next == nullptr) return head; // one element
+        
+        // two or more elements
+        while (it->next != nullptr) {
+            if ((it->next)->next == nullptr) {
+                if (it->val == (it->next)->val) it->next = nullptr;
+            }
+            else {
+                if (it->val == (it->next)->val) it->next = (it->next)->next;
+            }
+
+            if (it->next != nullptr && it->val != (it->next)->val) it = it->next;
+        }
+
+        return head;
