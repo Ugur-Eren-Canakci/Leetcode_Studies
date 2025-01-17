@@ -1,0 +1,15 @@
+10ms
+
+if (root == nullptr) return 0;
+
+        int depth = 0;
+        if (root->left != nullptr && root->right == nullptr) {
+            depth += 1 + minDepth(root->left);
+        }
+        else if (root->right != nullptr && root->left == nullptr) {
+            depth += 1 + minDepth(root->right);
+        }
+        else {
+            depth += 1 + min(minDepth(root->left),minDepth(root->right));
+        }
+        return depth;
