@@ -1,0 +1,15 @@
+0ms
+
+if (root == nullptr) return false;
+        
+        if (root->left == nullptr && root->right == nullptr) 
+            return root->val == targetSum;
+        
+        if (root->left == nullptr && root->right != nullptr) 
+            return hasPathSum(root->right, targetSum - root->val);
+
+        else if (root->left != nullptr && root->right == nullptr) 
+            return hasPathSum(root->left, targetSum - root->val);
+        
+        else 
+            return hasPathSum(root->left, targetSum - root->val) || hasPathSum(root->right, targetSum - root->val);
