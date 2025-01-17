@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q118_Pascals_Triangle.txt"/>
     <File Name="Q112_Path_Sum.txt"/>
     <File Name="Q111_Minimum_Depth_of_Binary_Tree.txt"/>
     <File Name="Q104_Maximum_Depth_of_Binary_Tree.txt"/>
