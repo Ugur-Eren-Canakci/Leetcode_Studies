@@ -1,0 +1,12 @@
+10ms
+
+bool hasCycle(ListNode *head) {
+        if (head == nullptr) return false;
+        set<ListNode*> set;
+        auto ptr = head;
+        while (ptr->next != nullptr) {
+            if (set.insert(ptr).second == false) return true;
+            else ptr = ptr->next;
+        }
+        return false;
+    }
