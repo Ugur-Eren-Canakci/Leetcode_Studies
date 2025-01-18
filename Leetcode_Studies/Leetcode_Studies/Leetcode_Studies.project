@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q125_Valid_Palindrome.txt"/>
     <File Name="Q121_Best_Time_to_Buy_and_Sell_Stock.txt"/>
     <File Name="Q119_Pascals_Triangle_2.txt"/>
     <File Name="Q118_Pascals_Triangle.txt"/>
