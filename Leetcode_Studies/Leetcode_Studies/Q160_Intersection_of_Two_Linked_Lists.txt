@@ -1,0 +1,17 @@
+34ms
+
+ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        if (headA == nullptr || headB == nullptr) return nullptr;
+        
+        auto it_1 = headA, it_2 = headB;
+
+        while (it_1 != it_2) {
+            if (it_1 == nullptr) it_1 = headB;
+            else it_1 = it_1->next;
+
+            if (it_2 == nullptr) it_2 = headA;
+            else it_2 = it_2->next;
+        }
+
+        return it_1;
+    }

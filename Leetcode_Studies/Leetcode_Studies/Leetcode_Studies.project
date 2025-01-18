@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q160_Intersection_of_Two_Linked_Lists.txt"/>
     <File Name="Q145_Binary_Tree_Postorder_Traversal.txt"/>
     <File Name="Q144_Binary_Tree_Preorder_Traversal.txt"/>
     <File Name="Q141_Linked_List_Cycle.txt"/>
