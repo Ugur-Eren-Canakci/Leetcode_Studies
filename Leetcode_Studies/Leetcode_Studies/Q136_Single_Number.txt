@@ -1,0 +1,8 @@
+7ms
+
+map<int,int> counts;
+        for (const auto& el : nums) {
+            if (!counts[el]) counts[el] = 1; 
+            else counts.erase(el); 
+        } 
+        return counts.begin()->first;
