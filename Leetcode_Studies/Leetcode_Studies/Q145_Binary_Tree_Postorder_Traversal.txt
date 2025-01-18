@@ -1,0 +1,20 @@
+4ms
+
+vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> res;
+        if (root == nullptr) return res;
+        else if (root->left == nullptr && root->right != nullptr) {
+            for (auto& el : postorderTraversal(root->right)) res.push_back(el);
+            res.push_back(root->val);
+        } 
+        else if (root->left != nullptr && root->right == nullptr) {
+            for (auto& el : postorderTraversal(root->left)) res.push_back(el);
+            res.push_back(root->val);
+        } 
+        else {
+            for (auto& el : postorderTraversal(root->left)) res.push_back(el);
+            for (auto& el : postorderTraversal(root->right)) res.push_back(el);
+            res.push_back(root->val);
+        }
+        return res;
+    }
