@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q190_Reverse_Bits.txt"/>
     <File Name="Q169_Majority_Element.txt"/>
     <File Name="Q160_Intersection_of_Two_Linked_Lists.txt"/>
     <File Name="Q145_Binary_Tree_Postorder_Traversal.txt"/>

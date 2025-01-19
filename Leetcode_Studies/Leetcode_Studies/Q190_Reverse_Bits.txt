@@ -1,0 +1,21 @@
+0ms
+
+uint32_t reverseBits(uint32_t n) {
+        uint32_t original_number = n;
+        std::vector<int> bits;
+        while (original_number>0) {
+            bits.push_back(original_number % 2);
+            original_number /= 2;
+        }
+
+        uint32_t res = 0;
+        for (const auto& el : bits) {
+            res *= 2;
+            res += el;
+        }
+
+        for (int i=0; i<32-bits.size(); i++) {
+            res *= 2;
+        }
+        return res;
+    }
