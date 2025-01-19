@@ -1,0 +1,18 @@
+Leetcode's compiler is inconsistent with the testcases
+isHappy(13) == true in both test cases and here, but after submission a "false" answer pops up with testcase 13.
+
+bool isHappy(int n) {
+        static set<int> squares;
+        vector<int> digits;
+        while (n>0) {
+            digits.push_back(n%10);
+            n /= 10;
+        }
+        
+        int square_of_digits = 0;
+        for (const auto& el : digits) square_of_digits += el*el;
+        
+        if (square_of_digits == 1) return true;
+        else if (squares.insert(square_of_digits).second) return isHappy(square_of_digits);
+        else return false;
+    }
