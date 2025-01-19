@@ -1,0 +1,21 @@
+3ms
+
+int majorityElement(vector<int>& nums) {
+        std::map<int, int> freq;
+        for (const auto& el : nums) {
+            freq[el] = 1;
+        }
+        
+        for (const auto& el : nums) 
+            freq[el]++;         
+
+        int max_element = 0;
+        int el_freq = 0;
+        for (const auto& el : nums) {
+            if (freq[el] > el_freq) {
+                max_element = el;
+                el_freq = freq[el];
+            }
+        }
+        return max_element;
+    }
