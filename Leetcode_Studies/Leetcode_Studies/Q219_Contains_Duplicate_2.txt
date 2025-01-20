@@ -1,0 +1,16 @@
+175ms
+
+bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        std::map<int, std::vector<int>> appearances;
+        for (int i=0; i<nums.size(); i++) {
+            if (appearances[nums[i]].empty()) appearances[nums[i]].push_back(i);
+            else {
+                for (const auto& el : appearances[nums[i]]) {
+                    if (abs(el - i) <= k) return true;
+                }
+                appearances[nums[i]].push_back(i);
+            }
+        }
+
+        return false;
+    }
