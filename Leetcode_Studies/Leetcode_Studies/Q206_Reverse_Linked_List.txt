@@ -1,0 +1,46 @@
+0ms
+
+ListNode* reverseList(ListNode* head) {
+        if (head == nullptr) return head;
+        
+        /* 1ms solution
+        std::vector<int> values;
+        auto it = head;
+        while (it != nullptr) {
+            values.push_back(it->val);
+            it = it->next;
+        }
+        
+        ListNode* res = new ListNode(values.back());
+        values.pop_back();
+        auto it_2 = res;
+        while (!values.empty()) {
+            auto next = new ListNode(values.back());
+            it_2->next = next;
+            values.pop_back();
+            it_2 = it_2->next;
+        }
+
+        return res;
+        */
+        
+        
+        std::vector<ListNode*> pointers;
+        auto it = head;
+        while (it != nullptr) {
+            pointers.push_back(it);
+            it = it->next;
+        }
+
+        auto res = pointers.back();
+        pointers.pop_back();
+        auto it_2 = res;
+        while (!pointers.empty()) {
+            it_2->next = pointers.back();
+            it_2 = it_2->next;
+            pointers.pop_back();
+        }
+        it_2->next = nullptr;
+
+        return res;
+    }
