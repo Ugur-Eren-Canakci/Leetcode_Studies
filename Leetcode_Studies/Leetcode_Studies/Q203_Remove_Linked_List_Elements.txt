@@ -1,0 +1,24 @@
+0ms
+
+ListNode* removeElements(ListNode* head, int val) {
+        if (head == nullptr) return head;
+        while (head->val == val) {
+            if (head->next != nullptr)
+                head = head->next;
+            else {
+                head = nullptr;
+                return head;
+            }
+        }
+
+        auto it = head;
+        while (it->next != nullptr) {
+            if (it->next->val != val) it = it->next;
+            else {
+                if (it->next->next != nullptr) it->next = it->next->next;
+                else it->next = nullptr;
+            }
+        }
+        
+        return head;
+    }
