@@ -1,0 +1,24 @@
+0ms
+
+bool isIsomorphic(string s, string t) {
+        if (int(s.length()) - int(t.length()) > 0) return false;
+        if (int(s.length()) - int(t.length()) < 0) return false;
+        
+        std::map<char,char> replacements;
+        std::set<char> domain;
+        std::set<char> image;
+        for (int i=0; i<s.length(); i++) {
+            domain.insert(s[i]);
+            image.insert(t[i]);
+            replacements[s[i]] = t[i];
+        }
+        
+        if (domain.size() != image.size()) return false;
+
+        string iso = "";
+        for (int i=0; i<s.length(); i++) {
+            iso += replacements[s[i]];
+        }
+
+        return iso == t;
+    }
