@@ -1,0 +1,11 @@
+0ms
+
+int firstBadVersion(int n) {
+        int l = 1, m = l + (n-l)/2;
+        while (l<=n) {
+            if (isBadVersion(m)) n = m-1;
+            else l = m+1;
+            m = l + (n-l)/2;
+        } 
+        return m;
+    }

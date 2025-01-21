@@ -7,30 +7,33 @@
 
 using namespace std;
 
-int addDigits(int num) {
-        
-    if (num == 0) return 0;
-    vector<int> digits;
+bool isBadVersion(int n) {
+    return n >= 4;
+}
 
-    while (num > 0) {
-        std::cout << "digit to add: " << num % 10 << std::endl;
-        digits.push_back(num % 10);
-        num = num/10;
-        std::cout << "now num is " << num << std::endl;
-    }
+int firstBadVersion(int n) {
     
-    if (digits.size() == 1) return digits[0];
-    int temp = 0;
-    for (const auto& el : digits) {
-        temp += el;
-    }
-
-    return addDigits(temp);
+    int l = 1, r = n;
+    int m = l + (r-l)/2;
+    
+    while (l<=r) {
+        if (isBadVersion(m)) {
+            r = m-1;
+            m = l + (r-l)/2;
+        }
+        else {
+            l = m+1;
+            m = l + (r - l)/2;
+        }
+        std::cout << "m is now " << m << std::endl;
+        std::cout << "l: " << l << ", r: " << r << std::endl;
+    } 
+    return m;
 }
 
 int main() {
     
-    addDigits(2);
+    std::cout << firstBadVersion(5);
     
     
     
