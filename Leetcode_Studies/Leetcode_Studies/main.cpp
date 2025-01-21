@@ -7,43 +7,32 @@
 
 using namespace std;
 
-vector<string> summaryRanges(vector<int>& nums) {
-        if (nums.empty()) return vector<string>{""};
-        vector<string> big_vec;
-        vector<int> vec{nums[0]};
-        string str = "";
-        for (int i=1; i<nums.size(); i++) {
-            if (vec.empty()) vec.push_back(nums[i]);
-            else if (vec.back() + 1 == nums[i]) vec.push_back(nums[i]);
-            else {
-                if (vec.size() != 1) {
-                    str += to_string(vec.front());
-                    str += "->";
-                    str += to_string(vec.back());    
-                }
-                else str += to_string(vec.front());
-                big_vec.push_back(str);
-                str = "";
-                vec = vector<int>{nums[i]};
-            } 
-        }
-        if (!vec.empty()) {
-            if (vec.size() != 1) {
-                str += to_string(vec.front());
-                str += "->";
-                str += to_string(vec.back());    
-            }
-            else str += to_string(vec.front());
-            big_vec.push_back(str);
-        }
+int addDigits(int num) {
+        
+    if (num == 0) return 0;
+    vector<int> digits;
 
-        return big_vec;
+    while (num > 0) {
+        std::cout << "digit to add: " << num % 10 << std::endl;
+        digits.push_back(num % 10);
+        num = num/10;
+        std::cout << "now num is " << num << std::endl;
+    }
+    
+    if (digits.size() == 1) return digits[0];
+    int temp = 0;
+    for (const auto& el : digits) {
+        temp += el;
     }
 
+    return addDigits(temp);
+}
+
 int main() {
-    vector<int> vec{0,1,2,4,5,7};
-    auto res = summaryRanges(vec);
-    for (const auto& el : res) cout << el << ",";
+    
+    addDigits(2);
+    
+    
     
     return 0;
 }

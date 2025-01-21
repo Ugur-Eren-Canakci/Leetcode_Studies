@@ -1,0 +1,20 @@
+0ms
+
+int addDigits(int num) {
+        if (num == 0) return 0;
+        vector<int> digits;
+
+        while (num > 0) {
+            int digit = num%10;
+            digits.push_back(digit);
+            num = num/10;
+        }
+        
+        if (digits.size() == 1) return digits[0];
+        int temp = 0;
+        for (const auto& el : digits) {
+            temp += el;
+        }
+
+        return addDigits(temp);
+    }
