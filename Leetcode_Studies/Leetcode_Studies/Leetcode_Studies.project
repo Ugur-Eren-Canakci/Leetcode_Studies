@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q228_Summary_Ranges.txt"/>
     <File Name="Q226_Invert_Binary_Tree.txt"/>
     <File Name="Q222_Count_Complete_Tree_Nodes.txt"/>
     <File Name="Q219_Contains_Duplicate_2.txt"/>
