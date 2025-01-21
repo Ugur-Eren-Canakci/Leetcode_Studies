@@ -93,6 +93,8 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q268_Missing_Number.txt"/>
+    <File Name="Q263_Ugly_Number.txt"/>
     <File Name="Q258_Add_Digits.txt"/>
     <File Name="Q257_Binary_Tree_Paths.txt"/>
     <File Name="Q242_Valid_Anagram.txt"/>

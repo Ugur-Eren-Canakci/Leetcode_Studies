@@ -1,0 +1,8 @@
+0ms 
+
+int missingNumber(vector<int>& nums) {
+        int n = nums.size();
+        int sum = 0;
+        for (const auto& el : nums) sum += el;
+        return n*(n+1)/2 - sum;
+    }
