@@ -1,0 +1,21 @@
+0ms
+
+TreeNode* invertTree(TreeNode* root) {
+        if (root == nullptr) return root;
+        if (root->left != nullptr && root->right == nullptr) {
+            root->right = invertTree(root->left);
+            root->left = nullptr;
+        }
+        else if (root->left == nullptr && root->right != nullptr) {
+            root->left = invertTree(root->right);
+            root->right = nullptr;
+        }
+        else {
+            TreeNode* new_r = invertTree(root->left);
+            TreeNode* new_l = invertTree(root->right);
+            root->left = new_l;
+            root->right = new_r;
+        }
+
+        return root;
+    }
