@@ -1,0 +1,32 @@
+0ms
+
+bool isPalindrome(ListNode* head) {
+        if (head->next == nullptr) return true;
+
+        int list_length = 0;
+        auto it = head;
+        while (it != nullptr) {
+            list_length++;
+            it = it->next;
+        }
+        vector<int> vec;
+        it = head;
+        for (int i=0; i<list_length/2; i++) {
+            vec.push_back(it->val);
+            it = it->next;
+        }
+        if (list_length % 2 != 0) {
+            it = it->next;
+        }
+        auto it_2 = vec.rbegin();
+        while (it != nullptr) {
+            if (it->val == *it_2) {
+                it = it->next;
+                it_2++;
+            }
+            else return false; 
+        }
+
+        return true;
+
+    }
