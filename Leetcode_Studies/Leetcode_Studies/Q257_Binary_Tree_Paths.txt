@@ -1,0 +1,39 @@
+0ms
+
+vector<string> binaryTreePaths(TreeNode* root) {
+        vector<string> res;
+        if (root == nullptr) return res;
+
+        if (root->left == nullptr && root->right == nullptr) res.push_back(to_string(root->val));
+        
+        else if (root->left != nullptr && root->right == nullptr) {
+            for (auto& el : binaryTreePaths(root->left)) {
+                string str = "";
+                str += to_string(root->val) + "->" + el;
+                res.push_back(str);
+            }
+        }
+        
+        else if (root->left == nullptr && root->right != nullptr) {
+            for (auto& el : binaryTreePaths(root->right)) {
+                string str = "";
+                str += to_string(root->val) + "->" + el;
+                res.push_back(str);
+            }
+        }
+        
+        else {
+            for (auto& el : binaryTreePaths(root->left)) {
+                string str = "";
+                str += to_string(root->val) + "->" + el;
+                res.push_back(str);
+            }
+            for (auto& el : binaryTreePaths(root->right)) {
+                string str = "";
+                str += to_string(root->val) + "->" + el;
+                res.push_back(str);
+            }
+        }
+
+        return res;
+    }
