@@ -1,0 +1,11 @@
+0ms
+
+int countNodes(TreeNode* root) {
+        if (root == nullptr) return 0;
+        if (root->left == nullptr && root->right == nullptr) return 1;
+        if (root->left != nullptr && root->right == nullptr) return 1 + countNodes(root->left);
+        if (root->left == nullptr && root->right != nullptr) return 1 + countNodes(root->right);
+        if (root->left != nullptr && root->right != nullptr) return 1 + countNodes(root->left) + countNodes(root->right);
+
+        return 0;
+    }
