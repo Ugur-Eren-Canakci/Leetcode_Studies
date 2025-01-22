@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q344_Reverse_String.txt"/>
     <File Name="Q342_Power_of_Four.txt"/>
     <File Name="Q338_Counting_Bits.txt"/>
     <File Name="Q326_Power_Of_Three.txt"/>

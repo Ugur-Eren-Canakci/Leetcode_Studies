@@ -1,0 +1,10 @@
+0ms
+
+void reverseString(vector<char>& s) {
+        vector<char> temp(s.size());
+        for (auto it = s.rbegin(); it != s.rend(); it++) {
+            temp[it - s.rbegin()] = *it;
+        }
+
+        s.swap(temp);
+    }
