@@ -7,34 +7,32 @@
 
 using namespace std;
 
-bool isBadVersion(int n) {
-    return n >= 4;
-}
-
-int firstBadVersion(int n) {
-    
-    int l = 1, r = n;
-    int m = l + (r-l)/2;
-    
-    while (l<=r) {
-        if (isBadVersion(m)) {
-            r = m-1;
-            m = l + (r-l)/2;
+void moveZeroes(vector<int>& nums) {
+    if (nums.size() < 2) {}
+    else {
+        int zeros = 0;
+        for (const auto& el : nums) {
+            if (el == 0) zeros++;
         }
-        else {
-            l = m+1;
-            m = l + (r - l)/2;
+        
+        auto it = nums.begin();
+        while (zeros > 0 && it != nums.end()) {
+            std::cout << "num of zeros: " << zeros;
+            if (*it == 0) {
+                nums.erase(it);
+                zeros--;
+                it = nums.begin();
+            }
+            else it++;
         }
-        std::cout << "m is now " << m << std::endl;
-        std::cout << "l: " << l << ", r: " << r << std::endl;
-    } 
-    return m;
+    }
 }
 
 int main() {
     
-    std::cout << firstBadVersion(5);
+    vector<int> nums{0,1,0,3,12};
     
+    moveZeroes(nums);
     
     
     return 0;

@@ -1,0 +1,24 @@
+76ms
+
+void moveZeroes(vector<int>& nums) {
+        if (nums.size() < 2) {}
+        else {
+            int zeros = 0;
+            int temp = 0;
+            for (const auto& el : nums) {
+                if (el == 0) zeros++;
+            }
+            temp = zeros;
+            auto it = nums.begin();
+            while (zeros > 0 && it != nums.end()) {
+                if (*it == 0) {
+                    nums.erase(it);
+                    zeros--;
+                    it = nums.begin();
+                }
+                else it++;
+            }
+
+            for (int i=0; i<temp; i++) nums.push_back(0);
+        }
+    }

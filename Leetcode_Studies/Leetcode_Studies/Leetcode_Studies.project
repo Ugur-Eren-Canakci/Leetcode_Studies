@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q283_Move_Zeroes.txt"/>
     <File Name="Q278_First_Bad_Version.txt"/>
     <File Name="Q268_Missing_Number.txt"/>
     <File Name="Q263_Ugly_Number.txt"/>
