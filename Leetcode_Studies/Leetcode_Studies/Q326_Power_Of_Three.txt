@@ -1,0 +1,8 @@
+0ms
+
+bool isPowerOfThree(int n) {
+        if (n<=0) return false;
+        else if (n==1) return true;
+        else if (long long k = n; k - k/3 != 2*k/3) return false;
+        else return isPowerOfThree(n/3);
+    }
