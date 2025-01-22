@@ -1,0 +1,8 @@
+0ms
+
+bool isPowerOfFour(int n) {
+        if (n < 1) return false;
+        else if (n == 1) return true;
+        else if (long k = n; k - k/4 != 3*k/4) return false;
+        else return isPowerOfFour(n/4);
+    }
