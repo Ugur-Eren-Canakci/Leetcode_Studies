@@ -1,0 +1,24 @@
+0ms
+
+string reverseVowels(string s) {
+        string res = "";
+        string vowels = "";
+        auto it = s.cbegin();
+        while (it != s.cend()) {
+            if (tolower(*it) == 'a' || tolower(*it) == 'e' || tolower(*it) == 'i' || tolower(*it) == 'o' || tolower(*it) == 'u') {
+                vowels += *it; 
+            }
+            it++;
+        }
+        it = s.cbegin();
+        int count = 0;
+        while (it != s.cend()) {
+            if (tolower(*it) == 'a' || tolower(*it) == 'e' || tolower(*it) == 'i' || tolower(*it) == 'o' || tolower(*it) == 'u') {
+                res += vowels[vowels.length()-1-count];
+                count++; 
+            }
+            else res += *it;
+            it++;
+        }
+        return res;
+    }
