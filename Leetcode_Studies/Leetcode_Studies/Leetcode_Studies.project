@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q349_Intersection_of_Two_Arrays.txt"/>
     <File Name="Q345_Reverse_Vowels_of_a_String.txt"/>
     <File Name="Q344_Reverse_String.txt"/>
     <File Name="Q342_Power_of_Four.txt"/>

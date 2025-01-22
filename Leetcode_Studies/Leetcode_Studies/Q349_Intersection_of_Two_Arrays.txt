@@ -1,0 +1,15 @@
+0ms
+
+vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        set<int> uniques_1;
+        set<int> uniques_2;
+        for (const auto& el : nums1) uniques_1.insert(el);
+        for (const auto& el : nums2) uniques_2.insert(el);
+
+        vector<int> res;
+        for (const auto& el : uniques_1) {
+            if (uniques_2.find(el) != uniques_2.end()) res.push_back(el);
+        }
+
+        return res;
+    }
