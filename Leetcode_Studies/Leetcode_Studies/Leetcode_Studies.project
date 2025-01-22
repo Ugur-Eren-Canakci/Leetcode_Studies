@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q338_Counting_Bits.txt"/>
     <File Name="Q326_Power_Of_Three.txt"/>
     <File Name="Q292_Nim_Game.txt"/>
     <File Name="Q290_Word_Pattern.txt"/>

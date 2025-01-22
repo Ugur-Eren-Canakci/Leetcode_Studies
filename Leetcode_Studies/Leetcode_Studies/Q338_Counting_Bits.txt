@@ -1,0 +1,15 @@
+3ms
+
+vector<int> countBits(int n) {
+        vector<int> res;
+        for (int i=0; i<n+1; i++) {
+            int temp = i;
+            int count = 0;
+            while (temp > 0) {
+                if (temp % 2 != 0) count++;
+                temp /= 2;
+            }
+            res.push_back(count);
+        }
+        return res;
+    }
