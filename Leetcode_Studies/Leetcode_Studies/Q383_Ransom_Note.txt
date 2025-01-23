@@ -1,0 +1,16 @@
+0ms (made a solution with 12ms duration, then looked at the answers and understood that a simple 26-slot array also works)
+
+bool canConstruct(string ransomNote, string magazine) {
+        if (ransomNote == "") return true;
+        else if (magazine == "") return false;
+        int arr[26] = {0}; // each slot is associated with a letter
+
+        for (char el : ransomNote) arr[el - 'a']--;
+        for (char el : magazine) arr[el - 'a']++;
+            
+        for (char el : ransomNote) {
+            if (arr[el - 'a'] < 0) return false;
+        }
+
+        return true;
+    }

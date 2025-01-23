@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q383_Ransom_Note.txt"/>
     <File Name="Q374_Guess_Number_Higher_or_Lower.txt"/>
     <File Name="Q367_Valid_Perfect_Square.txt"/>
     <File Name="Q350_Intersection_of_Two_Arrays_II.txt"/>
