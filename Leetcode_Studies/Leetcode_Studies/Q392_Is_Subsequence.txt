@@ -1,0 +1,10 @@
+0ms
+
+bool isSubsequence(string s, string t) {
+        int temp = 0;
+        for (int i=0; i<t.length(); i++) {
+            if (t[i] == s[temp]) temp++;
+        }
+
+        return temp == s.length();
+    }

@@ -1,0 +1,13 @@
+0ms
+
+char findTheDifference(string s, string t) {
+        if (s == "") return t[0];
+        int s_sum = 0;
+        for (int i=0; i<s.length(); i++) s_sum += (s[i] - 'a');
+
+        int t_sum = 0;
+        for (int i=0; i<t.length(); i++) t_sum += (t[i] - 'a');
+
+        return 'a' + (t_sum - s_sum);
+
+    }
