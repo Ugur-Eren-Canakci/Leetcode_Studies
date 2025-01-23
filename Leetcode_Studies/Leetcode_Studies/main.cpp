@@ -9,89 +9,44 @@
 
 using namespace std;
 
-bool wordPattern(string pattern, string s) {
-        if (s == "" && pattern == "") return true;
+vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+        vector<int> res;
+        set<int> uniques_1, uniques_2;
 
-        vector<string> chars;
-        auto it = pattern.begin();
-        while (it != pattern.end()) {
-            string str = "";
-            str += *it;
-            int count = 0;
-            for (const auto& el : chars) {
-                if (el == str) count++;
+        for (const auto& el : nums1) {
+            uniques_1.insert(el);
+        }
+
+        for (const auto& el : nums2) {
+            uniques_2.insert(el);
+        }
+
+        set<int> common_uniques;
+        for (const auto& el : uniques_1) common_uniques.insert(el);
+        for (const auto& el : uniques_2) common_uniques.insert(el);
+
+        for (const auto& el : common_uniques) {
+            std::cout << "common element: " << el << std::endl;
+            int count_1=0, count_2=0;
+            for (const auto& el_ : nums1) {
+                if (el_ == el) count_1++;
             }
-            if (count <= chars.size()) chars.push_back(str);
-            it++;
-        }
-
-        vector<string> words;
-        it = s.begin();
-        string word = "";
-        while (it != s.end()) {
-            if (*it != ' ') word += *it;
-            else {
-                int count = 0;
-                for (const auto& el : words) {
-                    if (el == word) count++;
-                }
-                if (count <= words.size()) words.push_back(word);
-                word = "";
+            for (const auto& el_ : nums2) {
+                if (el_ == el) count_2++;
             }
-            it++;
-        }
-        int count = 0;
-        for (const auto& el : words) {
-            if (el == word) count++;
-        }
-        if (count <= words.size()) words.push_back(word);
-        
-        if (chars.size() != words.size()) {
-            return false;
-        }
-        
-        map<string,string> matches;
-        auto it_1 = chars.begin();
-        auto it_2 = words.begin();
-        while (it_1 != chars.end()) {
-            matches[*it_1] = *it_2;
-            it_1++;
-            it_2++;
-        }
-        
-        if (chars.size() > 1) {
-            auto it_3 = matches.begin();
-            while (it_3 != matches.end()) {
-                auto it_4 = ++matches.begin();
-                while (it_4 != matches.end()) {
-                    if (it_3->second == it_4->second && it_3->first != it_4->first) {
-                        return false;
-                    }
-                    it_4++;
-                }
-                it_3++;
-            }    
-        }
 
-        string res = "";
-        for (const auto& el : pattern) {
-            string str = "";
-            str += el;
-            res += matches[str];
-            res += ' ';
+            if (count_1 > 0 && count_2 > 0) res.push_back(min(count_1,count_2));
+            else 
         }
-        
-        s += ' ';
-        return s == res;
+        return res;
     }
     
     
 int main() {
     
-    string s = "dog cat dog";
-    string pattern = "abc";
-    cout << boolalpha;
-    cout << endl << wordPattern(pattern, s); 
+    vector<int> nums1{1,2,2,1};
+    vector<int> nums2{2,2};
+    for (const auto& el : intersect(nums1,nums2)) std::cout << el << " ";
     
     return 0;
 }
