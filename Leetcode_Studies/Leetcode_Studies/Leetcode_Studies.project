@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q387_First_Unique_Character_in_a_String.txt"/>
     <File Name="Q383_Ransom_Note.txt"/>
     <File Name="Q374_Guess_Number_Higher_or_Lower.txt"/>
     <File Name="Q367_Valid_Perfect_Square.txt"/>
