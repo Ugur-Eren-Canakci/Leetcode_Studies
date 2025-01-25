@@ -9,82 +9,41 @@
 
 using namespace std;
 
-string toHex(int num) {
-        string res = "";
+int longestPalindrome(string s) {
+        if (s.length() < 2) return 1;
         
-        if (num < 0) {
-            // convert to base 2 string
-            int arr[32] = {0};
-            int power = 0;
-            int temp = -num;
-            // invert the digits
-            while (power < 32) {
-                arr[31 - power] = 1 - temp%2;
-                temp /= 2;
-                power++;
-            }
-            arr[0] = 0;
-            // add 1
-            int counter = 31;
-            bool addToNextDigit = true;
-                
-            while (addToNextDigit) {
-                if (arr[counter] == 1) {
-                    arr[counter] = 0;
-                    addToNextDigit = true;
-                }
-                else {
-                    arr[counter] = 1;
-                    addToNextDigit = false;
-                } 
-                counter--;
-            }
-            
-            
-            for (int i=0; i<32; i++) std::cout << arr[i];
-            std::cout << std::endl;
-            // now arr is the binary rep. of num that's inversed w.r. to the "two's complement" method
-            
-            // each group of 4-slots will turn into one digit in the hexadecimal representation
-            // for example, slots 0 to 3 is the most significant digit
-            // slots 4 to 7 is the next most significant digit, and so on
-            int group = 0;
-            while (group < 8) {
-                // get the digit value of the current group
-                int current_val = 0;
-                if (group == 0) current_val = 8;
-                for (int i=0; i<4; i++) {
-                    current_val += arr[4*group + i]*pow(2,3-i);
-                }
-                if (current_val > 9) {
-                    char temp = 'a' - 10 + current_val;
-                    res += temp;
-                }
-                else res += to_string(current_val);
-                std::cout << "now the returned string is " << res << std::endl;
-                group++;
-            }
-            return res;
-        }
-        
-        while (num != 0) {
-            if (num % 16 > 9) {
-                char temp = 'a' - 10 + (num%16);
-                res = temp + res;
-            }
-            else res = to_string(num%16) + res;
-            num /= 16; 
+        int counts[52] = {0};
+        for (char c : s) {
+            if (int(c) > 64 && int(c) < 91) counts[c - 'A']++;
+            else if (int(c) > 96 && int(c) < 123) counts[c - 'a' + 26]++;
         }
 
-        return res;
+        int num_of_unique_chars = 0;
+        for (int i=0; i<52; i++) {
+            std::cout << counts[i] << ",";
+            if (counts[i] > 0) num_of_unique_chars++;
+        }
+        std::cout << std::endl;
+        
+        if (num_of_unique_chars == 1) return s.length();
+
+        int res = 0;
+        int odd_count = 0;
+        for (int i=0; i<52; i++) {
+            if (counts[i] % 2 == 0) res += counts[i];
+            else if (counts[i] % 2 == 1 && counts[i] > odd_count) {
+                odd_count = counts[i];
+            }
+        }
+        return res + odd_count ;
     }
     
     
 int main() {
     
-    std::cout << toHex(-1) << std::endl;
-    std::cout << toHex(-2) << std::endl;
-    std::cout << toHex(-3) << std::endl;
+    string s = "civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth";
+    std::cout << longestPalindrome(s) << std::endl;
+    
     
     return 0;
 }
