@@ -1,22 +1,15 @@
-// Solutions are not meant to be executed here, as I don't have access to test cases
-// All answers can be copy-pasted into the Solution member function definition in Leetcode
-#include <vector>
-#include <set>
-#include <unordered_set>
-#include <map>
-#include <iostream>
-#include <cmath>
-
-using namespace std;
+0ms
 
 string toHex(int num) {
+        if (num==0) return "0";
+        if (num==-2147483648) return "80000000";
         string res = "";
         
         if (num < 0) {
             // convert to base 2 string
             int arr[32] = {0};
             int power = 0;
-            int temp = -num;
+            long temp{-num};
             // invert the digits
             while (power < 32) {
                 arr[31 - power] = 1 - temp%2;
@@ -61,7 +54,6 @@ string toHex(int num) {
                     res += temp;
                 }
                 else res += to_string(current_val);
-                std::cout << "now the returned string is " << res << std::endl;
                 group++;
             }
             return res;
@@ -78,13 +70,3 @@ string toHex(int num) {
 
         return res;
     }
-    
-    
-int main() {
-    
-    std::cout << toHex(-1) << std::endl;
-    std::cout << toHex(-2) << std::endl;
-    std::cout << toHex(-3) << std::endl;
-    
-    return 0;
-}
