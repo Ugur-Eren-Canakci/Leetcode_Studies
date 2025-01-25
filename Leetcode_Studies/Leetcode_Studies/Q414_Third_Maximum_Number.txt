@@ -1,0 +1,30 @@
+2ms
+
+int thirdMax(vector<int>& nums) {
+        int min_number = 0;
+        for (const auto& el : nums) {
+            if (el < min_number) min_number = el;
+        }
+
+        int arr[3]{min_number,min_number,min_number};
+        set<int> distinct_elements;
+        for (const auto& el : nums) {
+            if (!distinct_elements.insert(el).second) continue;
+            
+            if (el > arr[0]) {
+                arr[2] = arr[1];
+                arr[1] = arr[0];
+                arr[0] = el;
+            }
+            else if (el > arr[1]) {
+                arr[2] = arr[1];
+                arr[1] = el;
+            }
+            else if (el > arr[2]) {
+                arr[2] = el;
+            }
+        }
+
+        if (distinct_elements.size() < 3) return arr[0];
+        return arr[2];
+    }
