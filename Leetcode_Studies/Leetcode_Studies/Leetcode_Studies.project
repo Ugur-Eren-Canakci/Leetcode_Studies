@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q412_Fizz_Buzz.txt"/>
     <File Name="Q409_Longest_Palindrome.txt"/>
     <File Name="Q405_Convert_a_Number_to_Hexadecimal.txt"/>
     <File Name="Q392_Is_Subsequence.txt"/>
