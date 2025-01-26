@@ -1,0 +1,29 @@
+0ms
+
+int hammingDistance(int x, int y) {
+        string x_str = "", y_str = "";
+
+        while (x > 0) {
+            x_str = to_string(x % 2) + x_str;
+            x /= 2;
+        }
+        while (y > 0) {
+            y_str = to_string(y % 2) + y_str;
+            y /= 2;
+        }
+        
+        int x_length = x_str.length();
+        int y_length = y_str.length();
+        if (x_length < y_length) {
+            for (int i=0; i<(y_length - x_length); i++) x_str = '0' + x_str;
+        }
+        else {
+            for (int i=0; i<(x_length - y_length); i++) y_str = '0' + y_str;
+        }
+
+        int diff = 0;
+        for (int i=0; i<x_str.length(); i++) {
+            if (x_str[i] != y_str[i]) diff++;
+        }
+        return diff;
+    }
