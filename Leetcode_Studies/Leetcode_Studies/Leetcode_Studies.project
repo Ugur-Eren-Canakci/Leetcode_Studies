@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q495_Teemo_Attacking.txt"/>
     <File Name="Q492_Construct_The_Rectangle.txt"/>
     <File Name="Q485_Max_Consecutive_Ones.txt"/>
     <File Name="Q482_License_Key_Formatting.txt"/>
