@@ -1,0 +1,19 @@
+0ms
+
+int countSegments(string s) {
+        if (s == "") return 0;
+        s += ' ';
+        int res = 0;
+        bool in_word = (s[0] != ' ');
+        for (char c : s) {
+            if (in_word && c == ' ') {
+                res++;
+                in_word = false;
+            }
+            else if (!in_word && c != ' ') { 
+                in_word = true;
+            }
+        }
+
+        return res;
+    }

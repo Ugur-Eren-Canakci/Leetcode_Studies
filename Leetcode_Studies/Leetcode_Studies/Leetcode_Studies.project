@@ -93,6 +93,9 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q441_Arranging_Coins.txt"/>
+    <File Name="Q434_Number_of_Segments_in_a_String.txt"/>
+    <File Name="Q415_Add_Strings.txt"/>
     <File Name="Q414_Third_Maximum_Number.txt"/>
     <File Name="Q412_Fizz_Buzz.txt"/>
     <File Name="Q409_Longest_Palindrome.txt"/>

@@ -1,0 +1,86 @@
+24ms
+
+string addStrings(string num1, string num2) {
+        if (num1=="0") return num2;
+        if (num2=="0") return num1;
+        
+        vector<char> vec;
+        
+        bool add_to_next = false;
+        int num1_length = num1.length();
+        int num2_length = num2.length();
+
+        int it = 0;
+        if (num1_length > num2_length) {
+            while (it < num2_length) {
+                int digit_1 = int(num1[num1_length-1-it]-48);
+                int digit_2 = int(num2[num2_length-1-it]-48);
+                if (add_to_next) {
+                    vec.push_back(char(((digit_1 + digit_2 + 1) % 10) + 48));
+                    if (digit_1 + digit_2 + 1 > 9) add_to_next = true;
+                    else add_to_next = false;
+                }
+                else {
+                    vec.push_back(char(((digit_1 + digit_2) % 10) + 48));
+                    if (digit_1 + digit_2 > 9) add_to_next = true;
+                    else add_to_next = false;
+                }
+                it++;
+            }
+            
+            while (it < num1_length) {
+                int digit_1 = int(num1[num1_length-1-it]-48);
+                if (add_to_next) {
+                    vec.push_back(char(((digit_1 + 1) % 10) + 48));
+                    if (digit_1 + 1 > 9) add_to_next = true;
+                    else add_to_next = false;
+                }
+                else {
+                    vec.push_back(char((digit_1  % 10) + 48));
+                    if (digit_1 > 9) add_to_next = true;
+                    else add_to_next = false;
+                }
+                it++;
+            }
+        }
+        else {
+            while (it < num1_length) {
+                int digit_1 = int(num1[num1_length-1-it]-48);
+                int digit_2 = int(num2[num2_length-1-it]-48);
+                if (add_to_next) {
+                    vec.push_back(char(((digit_1 + digit_2 + 1) % 10) + 48));
+                    if (digit_1 + digit_2 + 1 > 9) add_to_next = true;
+                    else add_to_next = false;
+                }
+                else {
+                    vec.push_back(char(((digit_1 + digit_2) % 10) + 48));
+                    if (digit_1 + digit_2 > 9) add_to_next = true;
+                    else add_to_next = false;
+                }
+                it++;
+            }
+            
+            while (it < num2_length) {
+                int digit_2 = int(num2[num2_length-1-it]-48);
+                if (add_to_next) {
+                    vec.push_back(char(((digit_2 + 1) % 10) + 48));
+                    if (digit_2 + 1 > 9) add_to_next = true;
+                    else add_to_next = false;
+                }
+                else {
+                    vec.push_back(char((digit_2  % 10) + 48));
+                    if (digit_2 > 9) add_to_next = true;
+                    else add_to_next = false;
+                }
+                it++;
+            }
+        }
+
+        if (add_to_next) vec.push_back('1');
+        if (vec.back() == '0') vec.pop_back();
+        string res = "";
+        for (const auto& el : vec) {
+            res = el + res;
+        }
+        return res;
+    }
