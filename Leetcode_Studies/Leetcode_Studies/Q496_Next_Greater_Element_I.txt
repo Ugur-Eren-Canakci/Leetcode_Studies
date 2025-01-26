@@ -1,0 +1,23 @@
+0ms
+
+vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        vector<int> res;
+        for (const auto& el : nums1) {
+            int larger_num = -1;
+            auto it = nums2.begin();
+
+            while (*it != el) it++;
+            
+            while (it != nums2.end()) {
+                if (*it > el) {
+                    larger_num = *it;
+                    break;
+                }
+                it++;
+            }
+            
+            res.push_back(larger_num);
+        }
+
+        return res;
+    }
