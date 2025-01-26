@@ -1,0 +1,25 @@
+12ms
+
+int findContentChildren(vector<int>& g, vector<int>& s) {
+        
+        if (g.size() == 0 || s.size() == 0) return 0;
+
+        // sort the children from most greediest to least greediest
+        sort(g.begin(), g.end(), [] (int x, int y) { return x > y; } );
+        // sort the cookies based on size
+        sort(s.begin(), s.end(), [] (int x, int y) { return x > y; } );
+
+        auto it_1 = g.begin();
+        auto it_2 = s.begin();
+        int count = 0;
+        while (it_1 != g.end() && it_2 != s.end()) {
+            if (*it_2 >= *it_1) {
+                count++;
+                it_2++;
+            }
+            it_1++;
+        }
+
+        return count;
+
+    }

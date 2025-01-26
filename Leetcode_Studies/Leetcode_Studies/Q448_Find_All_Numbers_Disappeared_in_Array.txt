@@ -1,0 +1,15 @@
+3ms
+
+vector<int> findDisappearedNumbers(vector<int>& nums) {
+        vector<int> counts(nums.size(),0);
+        for (int i=0; i<nums.size(); i++) {
+            counts[nums[i]-1]++;
+        } 
+        
+        vector<int> res;
+        for (int i=0; i<nums.size(); i++) {
+            if (counts[i] == 0) res.push_back(i+1);
+        }
+
+        return res;
+    }
