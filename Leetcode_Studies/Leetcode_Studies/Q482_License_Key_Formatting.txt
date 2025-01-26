@@ -1,0 +1,27 @@
+0ms
+
+string licenseKeyFormatting(string s, int k) {
+        int num_dashes = 0;
+        vector<char> chars;
+        for (char c : s) {
+            if (c == '-') num_dashes++;
+            else chars.push_back(toupper(c));
+        }
+        
+        string res = "";
+        auto it = chars.begin();
+        while (it < chars.begin() + chars.size()%k) {
+            res += *it;
+            it++;
+        } 
+
+
+        for (int i=0; i<chars.size()/k; i++) {
+            if (res != "") res += '-';
+            for (int j=0; j<k; j++) {
+                res += chars[chars.size()%k + i*k + j];
+            }
+        }
+
+        return res;
+    }
