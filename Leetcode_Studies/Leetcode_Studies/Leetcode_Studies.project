@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q476_Number_Complement.txt"/>
     <File Name="Q461_Hamming_Distance.txt"/>
     <File Name="Q459_Repeated_Substring_Pattern.txt"/>
     <File Name="Q455_Assign_Cookies.txt"/>

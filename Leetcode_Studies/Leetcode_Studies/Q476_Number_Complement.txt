@@ -1,0 +1,20 @@
+0ms
+
+int findComplement(int num) {
+        string rep = "";
+        while (num > 0) {
+            rep = to_string(num%2) + rep;
+            num /= 2;
+        }
+
+        for (int i=0; i<rep.length(); i++) {
+            if (rep[i] == '1') rep[i] = '0';
+            else rep[i] = '1';
+        }
+        std::cout << rep << std::endl;
+        int res = 0;
+        for (int i=0; i<rep.length(); i++) {
+            if (rep[i] == '1') res += pow(2,rep.length()-1-i);
+        }
+        return res;
+    }
