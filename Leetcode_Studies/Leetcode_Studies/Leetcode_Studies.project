@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q459_Repeated_Substring_Pattern.txt"/>
     <File Name="Q455_Assign_Cookies.txt"/>
     <File Name="Q448_Find_All_Numbers_Disappeared_in_Array.txt"/>
     <File Name="Q441_Arranging_Coins.txt"/>

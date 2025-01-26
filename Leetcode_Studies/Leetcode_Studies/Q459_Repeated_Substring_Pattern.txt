@@ -1,0 +1,30 @@
+Naive solution: 1132 ms
+
+class Solution {
+    string current_window(string s, int l, int r) {
+        string res = "";
+        for (int i=l; i<r; i++) res += s[i];
+        return res;
+    }
+public:
+    bool repeatedSubstringPattern(string s) {
+        
+        if (s.length() == 0) return false;
+        if (s.length() == 1) return false;
+        if (s.length() == 2) return (s[0] == s[1]);
+        if (s.length() == 3) return (s[0] == s[1] && s[1] == s[2]);
+        
+        for (int current_length = 1; current_length <= s.length()/2; current_length++) {
+            string pattern = s.substr(0,current_length);
+
+            string temp = "";
+            for (int i=0; i<s.length()/current_length; i++) {
+                temp += pattern;
+            }
+
+            if (temp == s) return true;
+        }
+
+        return false;
+    }
+};
