@@ -1,0 +1,29 @@
+0ms
+
+vector<string> findWords(vector<string>& words) {
+        string row_1 = "qwertyuiop";
+        string row_2 = "asdfghjkl";
+        string row_3 = "zxcvbnm";
+        
+        map<char,int> row_map;
+        vector<string> res;
+        for (char c : row_1) row_map[c] = 1;
+        for (char c : row_2) row_map[c] = 2;
+        for (char c : row_3) row_map[c] = 3;
+
+        for (const string& el : words) {
+            int row = row_map[tolower(el[0])];
+            int count = 0;
+            for (char c : el) {
+                c = tolower(c);
+                if (row_map[c] != row) {
+                    break;
+                }
+                else count++;
+            }
+            if (count == el.length()) res.push_back(el);
+        }
+
+        return res;
+
+    }
