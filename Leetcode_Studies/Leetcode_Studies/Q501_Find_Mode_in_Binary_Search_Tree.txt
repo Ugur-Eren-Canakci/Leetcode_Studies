@@ -1,0 +1,32 @@
+39ms, very very slow
+
+class Solution {
+    vector<int> all_nodes(TreeNode* root) {
+        vector<int> res;
+        if (root == nullptr) return res;
+        res.push_back(root->val);
+        for (const int& el : all_nodes(root->left)) res.push_back(el);
+        for (const int& el : all_nodes(root->right)) res.push_back(el);
+        return res;
+    }
+public:
+    vector<int> findMode(TreeNode* root) {
+        vector<int> res;
+        if (root == nullptr) return res;
+        vector<int> all_values = all_nodes(root);
+        map<int,int> counts;
+        for (const auto& el : all_values) counts[el] = 0;
+        for (const auto& el : all_values) counts[el]++;
+
+        int max_count = 0;
+        for (const auto& el : counts) {
+            if (el.second > max_count) max_count = el.second;
+        }
+        for (const auto& el : counts) {
+            if (el.second == max_count) res.push_back(el.first);
+        }
+
+        return res;
+
+    }
+};

@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q501_Find_Mode_in_Binary_Search_Tree.txt"/>
     <File Name="Q500_Keyboard_Row.txt"/>
     <File Name="Q496_Next_Greater_Element_I.txt"/>
     <File Name="Q495_Teemo_Attacking.txt"/>
