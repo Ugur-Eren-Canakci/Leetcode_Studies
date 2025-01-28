@@ -1,0 +1,26 @@
+13ms
+
+string convert(string s, int numRows) {
+        if (s.length() < numRows) return s;
+        if (numRows < 2) return s;
+
+        vector<vector<char>> rows(numRows, vector<char>{});
+
+        int counter = 0;
+        bool going_down = true;
+        for (int i=0; i<s.length(); i++) {
+            rows[counter].push_back(s[i]);
+            if (counter == 0) going_down = true;
+            else if (counter == numRows-1) going_down = false;
+
+            if (going_down) counter++;
+            else counter--; 
+        }
+
+        string res{""};
+        for (int i=0; i<numRows; i++) {
+            for (int j=0; j<rows[i].size(); j++) res += rows[i][j];
+        }
+
+        return res;
+    }

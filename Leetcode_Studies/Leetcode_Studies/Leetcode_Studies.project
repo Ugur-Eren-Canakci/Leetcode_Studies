@@ -93,6 +93,9 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q8_String_to_Integer.txt"/>
+    <File Name="Q7_Reverse_Integer.txt"/>
+    <File Name="Q6_Zigzag_Conversion.txt"/>
     <File Name="Q501_Find_Mode_in_Binary_Search_Tree.txt"/>
     <File Name="Q500_Keyboard_Row.txt"/>
     <File Name="Q496_Next_Greater_Element_I.txt"/>

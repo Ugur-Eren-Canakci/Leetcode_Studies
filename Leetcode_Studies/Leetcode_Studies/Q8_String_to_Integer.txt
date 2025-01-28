@@ -1,13 +1,4 @@
-// Solutions are not meant to be executed here, as I don't have access to test cases
-// All answers can be copy-pasted into the Solution member function definition in Leetcode
-#include <vector>
-#include <set>
-#include <unordered_set>
-#include <map>
-#include <iostream>
-#include <cmath>
-
-using namespace std;
+17ms
 
 int myAtoi(string s) {
         if (s.length() == 0) return 0;
@@ -66,7 +57,7 @@ int myAtoi(string s) {
             else return pow(2,31)-1;
         }
         else {
-            long long val = 0;
+            unsigned long val = 0;
             for (int i=0; i<temp.size(); i++) {
                 if ((temp[i] - '0')*pow(10,temp.size()-1-i) > pow(2,31) && is_negative) return (-1)*pow(2,31);
                 else if ((temp[i] - '0')*pow(10,temp.size()-1-i) > pow(2,31) && !is_negative) return pow(2,31) - 1;
@@ -76,16 +67,12 @@ int myAtoi(string s) {
             std::cout << "val is " << val << std::endl;
             if (is_negative) {
                 std::cout << "negative flag" << std::endl;
-                return int((-1)*val);
+                if (val >= pow(2,31)) return (-1)*pow(2,31);
+                else return -1*int(val);
             }
-            else return int(val);
+            else {
+                if (val >= pow(2,31)) return pow(2,31) - 1;
+                else return int(val);
+            };
         }
     }
-
-int main() {
-    
-    string s = "2147483648";
-    std::cout << myAtoi(s) << std::endl;
-
-    return 0;
-}
