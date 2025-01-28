@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q11_Container_With_Most_Water.txt"/>
     <File Name="Q8_String_to_Integer.txt"/>
     <File Name="Q7_Reverse_Integer.txt"/>
     <File Name="Q6_Zigzag_Conversion.txt"/>
