@@ -1,0 +1,83 @@
+Time limit exceeded, still an O(n^2) solution
+
+vector<vector<int>> threeSum(vector<int>& nums) {
+        vector<vector<int>> res;
+        set<array<int,3>> temp;
+        if (nums.size() < 3) return res;
+        
+        map< array<int,2>, int > pair_map;
+        for (int i=0; i<nums.size()-1; i++) {
+            for (int j=i+1; j<nums.size(); j++) {
+                pair_map[array<int,2>{i,j}] = -1*(nums[i]+nums[j]);
+            }
+        }
+
+
+        for (const auto& el : pair_map) {
+            int first_index = el.first[0], second_index = el.first[1];
+            int i=0;
+            while (i < nums.size()) {
+                if (i != first_index && i != second_index) {
+                    if (nums[i] == el.second) {
+                        array<int,3> temp_arr{nums[first_index],nums[second_index],nums[i]};
+                        sort(temp_arr.begin(), temp_arr.end());
+                        temp.insert(temp_arr);
+                    }
+                }
+                i++;
+            } 
+        }
+
+        for (const auto& el : temp) {
+            res.push_back(vector<int>{el[0],el[1],el[2]});
+        } 
+        return res;
+    }
+    
+    
+46ms O(n logn) solution (with help)
+
+vector<vector<int>> threeSum(vector<int>& nums) {
+        
+        vector<vector<int>> res;
+        if (nums.size() < 3) return res;
+        sort(nums.begin(), nums.end());
+        if (nums[0] > 0) return res;
+        
+        int first_positive_index = -1;
+        for (int i=0; i<nums.size(); i++) {
+            if (nums[i] >= 0) {
+                first_positive_index = i;
+                break;
+            }
+        }
+
+        if (first_positive_index == -1 && nums[nums.size()-1] < 0) {
+            return res;
+        }
+        
+        for (int i=0; i<nums.size(); i++) {
+            
+            if (nums[i] > 0) break;
+            if (i > 0 && nums[i] == nums[i-1]) continue;
+            
+            int l = i+1, r = nums.size()-1;
+            while (l < r) {
+                if (nums[l] + nums[r] + nums[i] == 0) {
+                    // place the vector in set
+                    res.push_back({nums[i],nums[l],nums[r]});
+                    
+                    int l_last_occurence = nums[l], r_last_occurence = nums[r]; 
+                    
+                    // pass all low values that are equal to the current one, no reason to check those for a 3sum again
+                    while (l < r && nums[l] == l_last_occurence) l++;
+                    // similarly pass all high values that are equal to the current one
+                    while (l < r && nums[r] == r_last_occurence) r--;
+                }
+                else if (nums[l] + nums[r] + nums[i] < 0) l++;
+                else r--;
+            }
+        }
+
+        return res;
+    }
