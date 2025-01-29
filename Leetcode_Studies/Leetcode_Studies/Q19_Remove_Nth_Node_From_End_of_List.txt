@@ -1,0 +1,28 @@
+0ms
+
+ListNode* removeNthFromEnd(ListNode* head, int n) {
+        if (head == nullptr) return head;
+        if (n == 0) return head;
+
+        int list_size = 0;
+        auto it = head;
+        while (it != nullptr) {
+            it = it->next;
+            list_size++;
+        }
+        std::cout << "list size is " << list_size << std::endl;
+        if (n == list_size) {
+            head = head->next;
+            return head;
+        }
+
+        int el_to_delete = list_size - n - 1;
+        it = head;
+        while (el_to_delete > 0) {
+            it = it->next;
+            el_to_delete--;
+        }
+
+        if (it->next != nullptr) it->next = it->next->next;
+        return head;
+    }
