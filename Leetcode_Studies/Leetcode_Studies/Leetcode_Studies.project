@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q18_4Sum.txt"/>
     <File Name="Q16_3Sum_Closest.txt"/>
     <File Name="Q15_3Sum.txt"/>
     <File Name="Q12_Integer_to_Roman.txt"/>
