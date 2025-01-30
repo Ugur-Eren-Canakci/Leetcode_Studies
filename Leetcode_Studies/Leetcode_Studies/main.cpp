@@ -11,47 +11,49 @@
 
 using namespace std;
 
-vector<vector<int>> fourSum(vector<int>& nums, int target) {
-        if (nums.size() < 4) return {};
-        
-        vector<vector<int>> res;
-        set<vector<int>> uniques;
-        
-        sort(nums.begin(), nums.end());
+int divide(int dividend, int divisor) {
+        if (dividend == 0) return 0;
+        if (divisor == 1) return dividend;
+        if (divisor == -1 && dividend > 0) return -1*dividend;
+        if (divisor == -1 && dividend < 0) {
+            if (dividend == -1*pow(2,31)) return pow(2,31)-1;
+            else return -1*dividend;
+        }
 
-        for (int i=0; i<nums.size()-3; i++) {
-            for (int j=i+1; j<nums.size() - 2; j++) {
-                int left = j+1, right = nums.size() - 1;
-                while (left < right ) {
-                    int last_left = nums[left], last_right = nums[right];
-                    int sum = nums[i] + nums[j] + nums[left] + nums[right];
-                    
-                    if (sum == target) {
-                        uniques.insert(vector<int>{nums[i],nums[j],nums[left],nums[right]});
-                        int last_left = nums[left], last_right = nums[right];
-                        while (left < right && nums[left] == last_left) left++;
-                        while (left < right && nums[right] == last_right) right--;
-                    
-                    } 
-                    else if (sum < target) left++;
-                    else right--;
-                }
+        int quotient = 0;
+        long new_dividend = dividend;
+        if (new_dividend > 0 && divisor > 0 ) {
+            while (new_dividend - divisor >= 0) {
+            new_dividend -= divisor;
+            quotient += 1;
             }
         }
-        
-        for (const auto& el : uniques) res.push_back(el);
-        return res;
+        else if (new_dividend > 0 && divisor < 0) {
+            while (new_dividend + divisor >= 0) {
+                new_dividend += divisor;
+                quotient -= 1;
+            }
+        }
+        else if (new_dividend < 0 && divisor > 0) {
+            while (new_dividend + divisor <= 0) {
+                new_dividend += divisor;
+                quotient -= 1;
+            }
+        }
+        else {
+            while (new_dividend - divisor <= 0) {
+                new_dividend -= divisor;
+                quotient += 1;
+            }
+        }
+
+        return quotient;
     }
 
 int main() {
     
-    vector<int> vec{1,-2,-5,-4,-3,3,3,5};
-    std::cout << vec.size() << std::endl;
-    for (const auto& vector : fourSum(vec,-11)) {
-        cout << "vector: [";
-        for (const auto& el : vector) cout << el << ",";
-        cout << "]" << endl;
-    }
+    std::cout << 2147483647 << std::endl;
+    std::cout << divide(-2147483648,-2147483648) << std::endl;
     
     return 0;
 }
