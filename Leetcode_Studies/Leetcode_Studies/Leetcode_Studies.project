@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q24_Swap_Nodes_in_Pairs.txt"/>
     <File Name="Q22_Generate_Parentheses.txt"/>
     <File Name="Q19_Remove_Nth_Node_From_End_of_List.txt"/>
     <File Name="Q18_4Sum.txt"/>

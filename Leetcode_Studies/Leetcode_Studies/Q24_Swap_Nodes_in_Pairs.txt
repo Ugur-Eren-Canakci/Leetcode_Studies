@@ -1,0 +1,22 @@
+0ms
+
+ListNode* swapPairs(ListNode* head) {
+        if (head == nullptr) return head;
+        if (head->next == nullptr) return head;
+        
+        auto first = head;
+        auto second = head->next;
+            
+        if (head->next->next == nullptr) {
+            first->next = nullptr;
+            second->next = first;
+            head = second; 
+        }
+        else {
+            first->next = swapPairs(second->next);
+            second->next = first;
+            head = second;
+        }
+
+        return head;
+    }

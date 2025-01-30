@@ -1,26 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Session Name="C:\Users\ugur_\Desktop\git repos\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies.workspace">
-  <int Value="2" Name="m_selectedTab"/>
+  <int Value="3" Name="m_selectedTab"/>
   <wxString Value="C:\Users\ugur_\Desktop\git repos\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
       <wxString Value="C:\Users\ugur_\Desktop\git repos\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\main.cpp" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="17" Name="CurrentLine"/>
+      <int Value="35" Name="FirstVisibleLine"/>
+      <int Value="52" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="C:\Users\ugur_\Desktop\git repos\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\Q500_Keyboard_Row.txt" Name="FileName"/>
-      <int Value="4" Name="FirstVisibleLine"/>
-      <int Value="28" Name="CurrentLine"/>
+      <wxString Value="C:\Users\ugur_\Desktop\git repos\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\Q18_4Sum.txt" Name="FileName"/>
+      <int Value="14" Name="FirstVisibleLine"/>
+      <int Value="38" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="C:\Users\ugur_\Desktop\git repos\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\Q501_Find_Mode_in_Binary_Search_Tree.txt" Name="FileName"/>
+      <wxString Value="C:\Users\ugur_\Desktop\git repos\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\Q19_Remove_Nth_Node_From_End_of_List.txt" Name="FileName"/>
+      <int Value="3" Name="FirstVisibleLine"/>
+      <int Value="27" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\ugur_\Desktop\git repos\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\Q22_Generate_Parentheses.txt" Name="FileName"/>
       <int Value="15" Name="FirstVisibleLine"/>
-      <int Value="31" Name="CurrentLine"/>
+      <int Value="27" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
