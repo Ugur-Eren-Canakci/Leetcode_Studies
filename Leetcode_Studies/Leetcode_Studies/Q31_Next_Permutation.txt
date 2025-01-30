@@ -1,0 +1,21 @@
+0ms
+
+void nextPermutation(vector<int>& nums) {
+        if (nums.size() == 1) {return;}
+        
+
+        int i = nums.size() - 2; // the element before the last one
+        while (i >= 0 && nums[i] >= nums[i+1]) i--; // now i points to a decreasing element
+
+        if (i >= 0) {
+            int j = nums.size() - 1; // searching for one bigger number on the right
+            // everything on the right of i is in descending order. 
+            // So the first element we find that's larger than nums[i] is fit for the algorithm.
+            while (nums[j] <= nums[i]) j--; 
+
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+        }
+        sort(nums.begin() + i + 1, nums.end());
+    }

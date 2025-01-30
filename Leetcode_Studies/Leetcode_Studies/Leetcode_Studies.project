@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q31_Next_Permutation.txt"/>
     <File Name="Q29_Divide_Two_Integers.txt"/>
     <File Name="Q24_Swap_Nodes_in_Pairs.txt"/>
     <File Name="Q22_Generate_Parentheses.txt"/>
