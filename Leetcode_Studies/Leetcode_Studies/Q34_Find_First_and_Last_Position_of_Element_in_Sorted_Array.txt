@@ -1,15 +1,4 @@
-// Solutions are not meant to be executed here, as I don't have access to test cases
-// All answers can be copy-pasted into the Solution member function definition in Leetcode
-#include <vector>
-#include <set>
-#include <unordered_set>
-#include <map>
-#include <array>
-#include <iostream>
-#include <cmath>
-#include <algorithm>
-
-using namespace std;
+0ms
 
 vector<int> searchRange(vector<int>& nums, int target) {
         
@@ -26,6 +15,7 @@ vector<int> searchRange(vector<int>& nums, int target) {
         }
         if (nums[0] == target && nums[1] > target) return {0,0};
         if (nums[nums.size()-1] == target && nums[nums.size()-2] < target) return {int(nums.size()-1),int(nums.size()-1)};
+        
         int left = 0, right = nums.size() - 1;
         int mid = (left + right)/2;
         while (left <= right) {
@@ -36,27 +26,22 @@ vector<int> searchRange(vector<int>& nums, int target) {
         }
 
         if (nums[mid] == target) {
+            std::cout << mid << std::endl;
             int left_pos = mid, right_pos = mid;
-            if (left_pos > 0) {
-                while (nums[left_pos-1] == target && left_pos > 0) left_pos--;
+            while (left_pos > 0) {
+                if (nums[left_pos-1] == target) {
+                    left_pos--;
+                }
+                else break;
             }
-            if (right_pos < nums.size()-2) {
-                while (nums[right_pos+1] == target && right_pos < nums.size()-2) right_pos++;
-            }
+            while (right_pos < nums.size()-1) {
+                if (nums[right_pos+1] == target) {
+                    right_pos++;
+                }
+                else break;
+            } 
             return {left_pos,right_pos};
         }
 
         return {-1,-1};
     }
-
-int main() {
-    
-    vector<int> vec {1,1,2};
-    vector<int> res = searchRange(vec,1); 
-    
-    for (int i=0; i<2; i++) {
-        std::cout << res[i] << ",";
-    }
-    std::cout << std::endl;
-    return 0;
-}
