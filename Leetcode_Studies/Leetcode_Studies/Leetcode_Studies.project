@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q36_Valid_Sudoku.txt"/>
     <File Name="Q34_Find_First_and_Last_Position_of_Element_in_Sorted_Array.txt"/>
     <File Name="Q31_Next_Permutation.txt"/>
     <File Name="Q29_Divide_Two_Integers.txt"/>

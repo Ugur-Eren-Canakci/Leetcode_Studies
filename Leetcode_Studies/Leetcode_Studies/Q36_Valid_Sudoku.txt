@@ -1,0 +1,43 @@
+3ms
+
+class Solution {
+    bool square_check(vector<vector<char>>& board, int row, int column) {
+        set<char> square_uniques;
+        for (int i=0; i<3; i++) {
+            for (int j=0; j<3; j++) {
+                if (!isdigit(board[3*row + i][3*column+j])) continue;
+                else if (!square_uniques.insert(board[3*row + i][3*column+j]).second) return false;
+            }
+        }
+        return true;
+    }
+public:
+    bool isValidSudoku(vector<vector<char>>& board) {
+        // rows check
+        for (int i=0; i<9; i++) {
+            set<char> row_uniques;
+            for (int j=0; j<9; j++) {
+                if (!isdigit(board[i][j])) continue;
+                else if (!row_uniques.insert(board[i][j]).second) return false;
+            }
+        }
+
+        // columns check
+        for (int i=0; i<9; i++) {
+            set<char> column_uniques;
+            for (int j=0; j<9; j++) {
+                if (!isdigit(board[j][i])) continue;
+                else if (!column_uniques.insert(board[j][i]).second) return false;
+            }
+        }
+
+        // squares check
+        for (int row = 0; row < 3; row++) {
+            for (int column = 0; column < 3; column++) {
+                if (!square_check(board,row,column)) return false;
+            }
+        }
+
+        return true;
+    }
+};
