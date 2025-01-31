@@ -1,0 +1,29 @@
+4ms
+
+string countAndSay(int n) {
+        if (n == 1) return "1";
+        string current_str{countAndSay(n-1)};
+        string res{""};
+
+        auto it = current_str.begin();
+        
+        int current_char_count{1};
+        char current_char{*it};
+        
+        while (it != current_str.end()) {
+            if (*(it+1) == *it) {
+                current_char_count++;
+            }
+            else {
+                res += to_string(current_char_count) + current_char;
+
+                current_char_count = 1;
+                current_char = *(it+1);
+            }
+
+            it++;
+        }
+
+        return res;
+
+    }
