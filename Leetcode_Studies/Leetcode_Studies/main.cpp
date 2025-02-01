@@ -11,52 +11,57 @@
 
 using namespace std;
 
-vector<int> searchRange(vector<int>& nums, int target) {
+vector<int> next_permutation(vector<int>& nums) {
+        // start iterating from end
+        auto it = nums.rbegin()+1;
         
-        if (nums.empty()) return {-1,-1};
-        if (nums.size() == 1) {
-            if (nums[0] == target) return {0,0};
-            else return {-1,-1};
-        }
-        if (nums.size() == 2) {
-            if (nums[0] == target && nums[1] == target) return {0,1};
-            else if (nums[0] == target && nums[1] != target) return {0,0};
-            else if (nums[0] != target && nums[1] == target) return {1,1};
-            else return {-1,-1};
-        }
-        if (nums[0] == target && nums[1] > target) return {0,0};
-        if (nums[nums.size()-1] == target && nums[nums.size()-2] < target) return {int(nums.size()-1),int(nums.size()-1)};
-        int left = 0, right = nums.size() - 1;
-        int mid = (left + right)/2;
-        while (left <= right) {
-            mid = (left + right)/2;
-            if (target == nums[mid]) break;
-            if (target < nums[mid]) right = mid - 1;
-            else if (target > nums[mid]) left = mid + 1;
+        // find an of decreasing value
+        auto it_decrease = it;
+        while (it != nums.rend()) {
+            if (*it < *(it-1)) {
+                it_decrease = it;
+                break;
+            }
+            
         }
 
-        if (nums[mid] == target) {
-            int left_pos = mid, right_pos = mid;
-            if (left_pos > 0) {
-                while (nums[left_pos-1] == target && left_pos > 0) left_pos--;
+        // find the next smallest value on the right
+        int min_val_on_right = *it_decrease;
+        auto it_next = nums.rbegin();
+        while (it_next < it_decrease) {
+            if (*it_next > min_val_on_right) {
+                min_val_on_right = *it_next;
+                break;
             }
-            if (right_pos < nums.size()-2) {
-                while (nums[right_pos+1] == target && right_pos < nums.size()-2) right_pos++;
-            }
-            return {left_pos,right_pos};
         }
 
-        return {-1,-1};
+        // swap values
+        int temp = *it_next;
+        *it_next = *it_decrease;
+        *it_decrease = temp;
+        std::cout << "after swap:";
+        for (const auto& el : nums) std::cout << el << ",";
+        std::cout << std::endl;
+
+        // sort everything on the right
+        sort(nums.rbegin(), it_decrease-1, [] (int x, int y) {return x > y;});
+
+        return nums;
+    }
+
+size_t factorial(size_t n) {
+        if (n < 2) return 1;
+        return n*factorial(n-1);
     }
 
 int main() {
     
-    vector<int> vec {1,1,2};
-    vector<int> res = searchRange(vec,1); 
-    
-    for (int i=0; i<2; i++) {
-        std::cout << res[i] << ",";
+    std::vector<int> nums{1,3,2};
+    for (int i=0; i<factorial(nums.size()); i++) {
+        nums = next_permutation(nums);
+        std::cout << "after swap:";
+        for (const auto& el : nums) std::cout << el << ",";
+        std::cout << std::endl;
     }
-    std::cout << std::endl;
     return 0;
 }

@@ -1,0 +1,24 @@
+194ms
+
+int jump(vector<int>& nums) {
+        if (nums.size() < 2) return 0;
+        else if (nums[0] == 0) return 0;
+        // traverse from end to find the largest jump possible to the last point
+        vector<bool> pass(nums.size(),false);
+        for (int i=0; i<nums.size(); i++) {
+            if (i + nums[i] >= nums.size()-1) pass[i] = true; 
+        }
+
+        int count = 0;
+        for (int i=0; i<nums.size(); i++) {
+            if (!pass[i]) count++;
+            else {
+                count++;
+                break;
+            }
+        } 
+
+        vector<int> new_nums;
+        for (int i=0; i<count; i++) new_nums.push_back(nums[i]);
+        return 1 + jump(new_nums);
+    }
