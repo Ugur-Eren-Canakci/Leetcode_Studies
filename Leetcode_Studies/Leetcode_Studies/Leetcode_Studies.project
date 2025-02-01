@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q47_Permutations_II.txt"/>
     <File Name="Q46_Permutations.txt"/>
     <File Name="Q45_Jump_Game_II.txt"/>
     <File Name="Q38_Count_and_Say.txt"/>

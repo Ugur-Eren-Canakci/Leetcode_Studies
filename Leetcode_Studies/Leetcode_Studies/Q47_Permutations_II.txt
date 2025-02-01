@@ -1,19 +1,6 @@
-// Solutions are not meant to be executed here, as I don't have access to test cases
-// All answers can be copy-pasted into the Solution member function definition in Leetcode
-#include <vector>
-#include <set>
-#include <unordered_set>
-#include <map>
-#include <array>
-#include <iostream>
-#include <cmath>
-#include <algorithm>
-
-using namespace std;
+91ms (can be improved with applying DP on factorial)
 
 class Solution {
-public:
-    static vector<int> factorials; 
     vector<int> next_permutation(vector<int>& nums) {
         // start iterating from end
         auto it = nums.rbegin()+1;
@@ -51,16 +38,10 @@ public:
     }
 
     int factorial(int n) {
-        if (factorials.size() > n) return factorials[n];
-        else {
-            for (int i=factorials.size()-1; i<n; i++) {
-                factorials[i] = i*factorials[i-1];
-            }
-        } 
-
-        return factorials[n];
+        if (n < 2) return 1;
+        return n*factorial(n-1);
     }
-
+public:
     vector<vector<int>> permuteUnique(vector<int>& nums) {
         set<vector<int>> unique_permutations{nums};
 
@@ -76,17 +57,3 @@ public:
         return res;
     }
 };
-
-vector<int> Solution::factorials{1,1};
-
-int main() {
-    
-    Solution s;
-    
-    std::cout << s.factorial(0) << std::endl;
-    std::cout << s.factorial(1) << std::endl;
-    std::cout << s.factorial(2) << std::endl;
-    std::cout << s.factorial(3) << std::endl;
-    std::cout << s.factorial(4) << std::endl;
-    return 0;
-}
