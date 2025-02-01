@@ -1,0 +1,63 @@
+0ms
+
+class Solution {
+    vector<int> next_permutation(vector<int>& nums) {
+        
+        // start iterating from end
+        auto it = nums.rbegin()+1;
+        
+        // find an of decreasing value
+        auto it_decrease = it;
+        while (it != nums.rend()) {
+            if (*it < *(it-1)) {
+                it_decrease = it;
+                break;
+            }
+            it++;
+        }
+
+        // if it is nums.rend(), then the vector is in decreasing order
+        if (it == nums.rend()) {
+            sort(nums.begin(),nums.end());
+            return nums;
+        }
+
+        // find the next smallest value on the right
+        int min_val_on_right = *it_decrease;
+        auto it_next = nums.rbegin();
+        while (it_next < it_decrease) {
+            if (*it_next > min_val_on_right) {
+                min_val_on_right = *it_next;
+                break;
+            }
+            it_next++;
+        }
+
+        // swap values
+        int temp = *it_next;
+        *it_next = *it_decrease;
+        *it_decrease = temp;
+
+        // sort everything on the right
+        sort(nums.rbegin(), it_decrease, [] (int x, int y) {return x > y;});
+
+        return nums;
+    }
+
+    size_t factorial(size_t n) {
+        if (n < 2) return 1;
+        return n*factorial(n-1);
+    }
+public:
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<vector<int>> res{nums};
+        if (nums.size() < 2) return res;
+        for (int i=1; i<factorial(nums.size()); i++) {
+            vector<int> next = next_permutation(nums); 
+            nums.swap(next);
+            res.push_back(nums);
+        }
+
+        return res;
+    }
+};
