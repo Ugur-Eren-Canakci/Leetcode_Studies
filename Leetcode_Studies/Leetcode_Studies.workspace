@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="Leetcode_Studies" Database="" Version="10000">
-  <Project Name="Leetcode_Studies" Path="Leetcode_Studies/Leetcode_Studies.project" Active="Yes"/>
+  <Project Name="Leetcode_Studies" Path="Leetcode_Studies/Leetcode_Studies.project" Active="No"/>
+  <Project Name="Time_Limit_Exceeded" Path="Time_Limit_Exceeded/Time_Limit_Exceeded.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug">
       <Environment/>
       <Project Name="Leetcode_Studies" ConfigName="Debug"/>
+      <Project Name="Time_Limit_Exceeded" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release">
       <Environment/>
       <Project Name="Leetcode_Studies" ConfigName="Release"/>
+      <Project Name="Time_Limit_Exceeded" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>

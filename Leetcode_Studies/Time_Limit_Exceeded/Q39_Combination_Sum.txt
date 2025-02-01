@@ -1,0 +1,34 @@
+vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        if (target <= 0) return {};
+
+        sort(candidates.begin(), candidates.end());
+        vector<int> new_candidates;
+        for (int i=0; i<candidates.size(); i++) {
+            if (candidates[i] <= target) {
+                new_candidates.push_back(candidates[i]);
+            }
+            else break;
+        }
+
+        if (new_candidates.size() < candidates.size()) return combinationSum(new_candidates, target);
+        
+        set<vector<int>> unique_vectors; 
+        for (const auto& el : candidates) {
+            if (!combinationSum(candidates, target - el).empty()) {
+                for (auto& vec : combinationSum(candidates, target - el)) {
+                    vec.push_back(el);
+                    sort(vec.begin(), vec.end());
+                    unique_vectors.insert(vec);
+                }
+            }
+            else if (target - el == 0) {
+                unique_vectors.insert(vector<int>{el});
+            }
+            
+        }
+
+        vector<vector<int>> res;
+        for (const auto& el : unique_vectors) res.push_back(el);
+
+        return res;
+    }
