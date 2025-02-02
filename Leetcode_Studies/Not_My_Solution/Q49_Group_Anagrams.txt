@@ -1,0 +1,19 @@
+vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        if (strs.size() == 0) return {{""}};
+        if (strs.size() == 1) return {{strs[0]}};
+
+        unordered_map<string, vector<string>> map;
+
+        for (auto s : strs) {
+            string word = s;
+            sort(word.begin(), word.end());
+            map[word].push_back(s);
+        }
+
+        vector<vector<string>> res;
+        for (const auto& el : map) {
+            res.push_back(el.second);
+        }
+
+        return res;
+    }
