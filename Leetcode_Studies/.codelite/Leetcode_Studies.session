@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Session Name="C:\Users\ugur_\Desktop\git repos\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies.workspace">
-  <int Value="2" Name="m_selectedTab"/>
+  <int Value="5" Name="m_selectedTab"/>
   <wxString Value="C:\Users\ugur_\Desktop\git repos\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
@@ -21,6 +21,27 @@
       <wxString Value="C:\Users\ugur_\Desktop\git repos\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\Q47_Permutations_II.txt" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
       <int Value="0" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\ugur_\Desktop\git repos\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\Not_My_Solution\Q49_Group_Anagrams.txt" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="18" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\ugur_\Desktop\git repos\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\Q50_Pow(x,n).txt" Name="FileName"/>
+      <int Value="1" Name="FirstVisibleLine"/>
+      <int Value="25" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\ugur_\Desktop\git repos\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\Leetcode_Studies\Q53_Maximum_Subarray.txt" Name="FileName"/>
+      <int Value="1" Name="FirstVisibleLine"/>
+      <int Value="25" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

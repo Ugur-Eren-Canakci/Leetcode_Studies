@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
+    <File Name="Q53_Maximum_Subarray.txt"/>
     <File Name="Q50_Pow(x,n).txt"/>
     <File Name="Q47_Permutations_II.txt"/>
     <File Name="Q46_Permutations.txt"/>
